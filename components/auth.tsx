@@ -14,6 +14,7 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import axios from 'axios'
 import { githubSignup,githubLogin } from '@/appwrite/signup'
+import { useRouter } from 'next/navigation'
 function Auth() {
     const [email,setEmail] = useState<string>('')
     const [name,setname] = useState<string>('')
@@ -22,6 +23,7 @@ function Auth() {
     const [error,setError] = useState<string | null>(null)
     const [success,setSuccess] = useState<string | null>(null)
     const dispatch = useAppDispatch();
+    const router = useRouter();
 
     const toggleVariant = useCallback(()=>{
         setVariant((currentVariant)=>currentVariant === 'login' ? "register":"login")
@@ -50,7 +52,7 @@ function Auth() {
           
             const googlecreate = await account.createOAuth2Session(
                 OAuthProvider.Google,
-                'http://localhost:3000/',
+                'http://localhost:3000/profiles',
                 'http://localhost:3000/auth'
             );
             
@@ -71,6 +73,7 @@ function Auth() {
                     dispatch(trueState())
                     console.log(login)
                     setSuccess("logging in .....")
+                    router.push('/profiles')
 
 
                 }

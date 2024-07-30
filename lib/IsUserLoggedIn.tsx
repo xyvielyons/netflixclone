@@ -11,9 +11,7 @@ function IsUserLoggedIn({children}:{children:React.ReactNode}) {
     const dispatch = useAppDispatch()
 
     useEffect(()=>{
-            if(GetState){
-                router.push('/')
-            }
+           
 
             console.log(GetState)
 

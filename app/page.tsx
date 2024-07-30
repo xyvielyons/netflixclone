@@ -1,12 +1,11 @@
 import Logout from "@/components/logout";
-export default function Home() {  
+import Home from "@/components/home";
+import Navbar from "@/components/Navbar";
+export default function HomePage() {  
   return (
-    <main className="bg">
-      <div className="">
-      
-        <Logout></Logout>
+    <>
 
-      </div>
-    </main>
+      <Navbar></Navbar>
+    </>
   );
 }
