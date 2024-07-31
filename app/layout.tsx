@@ -4,7 +4,7 @@ import "./globals.css";
 import {NextUIProvider} from "@nextui-org/react";
 import ReduxProviders from "@/lib/reduxProvider";
 import IsUserLoggedIn from "@/lib/IsUserLoggedIn";
-
+import ReactQueryProvider from "@/lib/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +27,9 @@ export default function RootLayout({
         <ReduxProviders>
           <NextUIProvider>
             <IsUserLoggedIn>
-            {children}
+              <ReactQueryProvider>
+              {children}
+              </ReactQueryProvider>           
             </IsUserLoggedIn>
           </NextUIProvider>
         </ReduxProviders>
