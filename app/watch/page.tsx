@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect,useState } from 'react'
 import { usePathname,useSearchParams } from 'next/navigation'
+import {Bars} from 'react-loader-spinner'
 import { useQuery } from 'react-query'
 import axios from 'axios'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
@@ -34,7 +35,20 @@ function PlayerPage() {
   })
   
 if(isLoading){
-    return <h1 className='text-2xl text-white'>Loading .....................</h1>
+    return (
+      <div className="h-screen w-full flex justify-center items-center">
+        <Bars color="#E50914"></Bars>
+        <p className='text-xl font-semibold text-white'>Loading.......</p>
+      </div>
+    )
+}
+if(!data){
+  return (
+    <div className="h-screen w-full flex justify-center items-center">
+    <Bars color="#E50914"></Bars>
+    <p className='text-xl font-semibold text-white'>searching for stream.........</p>
+  </div>
+  )
 }
 
 const movie = data?.data.results[0]
@@ -53,7 +67,7 @@ console.log(movie)
           </p>
       </nav>
       <Suspense fallback={<p className='text-white text-2xl'>Loading feed...</p>}>
-        <MediaPlayer poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className='h-full w-full' autoPlay controls loop src={`https://www.youtube.com/watch?v=${movie?.key}`}>
+        <MediaPlayer  poster={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} className='h-full w-full' autoPlay controls loop src={`https://www.youtube.com/watch?v=${movie?.key}`}>
            <MediaProvider />
         </MediaPlayer>
 
