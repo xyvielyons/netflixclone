@@ -1,7 +1,6 @@
 "use client"
 import { account,ID,databases,avatars } from "@/app/appwrite"
 import { OAuthProvider } from "appwrite";
-import axios from "axios";
 
 
 

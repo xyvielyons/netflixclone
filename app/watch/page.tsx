@@ -27,7 +27,7 @@ function PlayerPage() {
 
    useEffect(()=>{
     setId(search)
-   },[pathname,searchParams])
+   },[pathname,searchParams,search])
   
    const {isLoading,data}  = useQuery('getMovie',()=>{
     return axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,config)
