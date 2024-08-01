@@ -36,7 +36,7 @@ function PlayerPage() {
   
 if(isLoading){
     return (
-      <div className="h-screen w-full flex justify-center items-center">
+      <div className="h-screen w-full flex justify-center items-center flex-col">
         <Bars color="#E50914"></Bars>
         <p className='text-xl font-semibold text-white'>Loading.......</p>
       </div>
@@ -44,7 +44,7 @@ if(isLoading){
 }
 if(!data){
   return (
-    <div className="h-screen w-full flex justify-center items-center">
+    <div className="h-screen w-full flex justify-center items-center flex-col">
     <Bars color="#E50914"></Bars>
     <p className='text-xl font-semibold text-white'>searching for stream.........</p>
   </div>
@@ -58,7 +58,7 @@ console.log(movie)
   return (
     <div className='h-screen w-screen bg-black'>
       <nav className='fixed w-full p-4 z-10 flex  flex-row items-center gap-8 bg-black bg-opacity-70 '>
-          <AiOutlineArrowLeft onClick={()=>router.push('/')}  className='text-white' size={40}></AiOutlineArrowLeft>
+          <AiOutlineArrowLeft onClick={()=>router.replace('/')}  className='text-white' size={40}></AiOutlineArrowLeft>
           <p className='text-white text-1xl md:text-3xl font-bold'>
             <span className='font-light'>
               Watching:
@@ -66,12 +66,12 @@ console.log(movie)
             {movie?.name}
           </p>
       </nav>
-      <Suspense fallback={<p className='text-white text-2xl'>Loading feed...</p>}>
+      
         <MediaPlayer  poster={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} className='h-full w-full' autoPlay controls loop src={`https://www.youtube.com/watch?v=${movie?.key}`}>
            <MediaProvider />
         </MediaPlayer>
 
-      </Suspense>
+      
         
     </div>
   )
