@@ -11,10 +11,10 @@ function IsUserLoggedIn({children}:{children:React.ReactNode}) {
     const dispatch1 = useAppDispatch()
 
     useEffect(()=>{
-           if(!GetState){
-            router.push('/auth')
+          //  if(!GetState){
+          //   router.push('/auth')
 
-           }
+          //  }
 
             console.log(GetState)
 
