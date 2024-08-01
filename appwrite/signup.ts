@@ -5,8 +5,8 @@ import axios from "axios";
 
 
 
-const databaseId = '66a80fe2002c8ee8aec1';
-const userCollectionId = '66a80fe70023c9c2f073';
+const databaseId = '66ab00b10027a54f367f';
+const userCollectionId = '66ab00dd001aafd07110';
 
 export const signup = async(email:string,name:string,password:string)=>{
     try {

@@ -16,7 +16,7 @@ const config = {
   }
 }
 import { useRouter } from 'next/navigation'
-import { Suspense } from 'react'
+
 function PlayerPage() {
     const [id, setId] = useState<any>()
     const pathname = usePathname()
@@ -27,12 +27,12 @@ function PlayerPage() {
 
    useEffect(()=>{
     setId(search)
-   },[pathname,search])
+   },[pathname,searchParams])
   
-   const {isLoading,data}  = useQuery('PopularMovies',()=>{
+   const {isLoading,data}  = useQuery('getMovie',()=>{
     return axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,config)
 
-  })
+  },{cacheTime:0,staleTime: 0,refetchOnMount:true,refetchInterval:2000})
   
 if(isLoading){
     return (
