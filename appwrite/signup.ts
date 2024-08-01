@@ -54,8 +54,8 @@ export const githubSignup = async()=>{
     try {
                 const github = await account.createOAuth2Session(
                     OAuthProvider.Github,
-                    '/profiles',
-                    '/auth'
+                    `${window.location.origin}/profiles`,
+                    `${window.location.origin}/auth`
                 )
                 // console.log("github",github)
 
