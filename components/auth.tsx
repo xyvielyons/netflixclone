@@ -52,8 +52,8 @@ function Auth() {
           
             const googlecreate = await account.createOAuth2Session(
                 OAuthProvider.Google,
-                'http://localhost:3000/profiles',
-                'http://localhost:3000/auth'
+                '/profiles',
+                '/auth'
             );
             
             dispatch1(trueState())
