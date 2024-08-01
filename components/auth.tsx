@@ -22,8 +22,8 @@ function Auth() {
     const [variant, setVariant] = useState('login');
     const [error,setError] = useState<string | null>(null)
     const [success,setSuccess] = useState<string | null>(null)
-    const dispatch = useAppDispatch();
-    const router = useRouter();
+    const dispatch1 = useAppDispatch();
+    const router1 = useRouter();
 
     const toggleVariant = useCallback(()=>{
         setVariant((currentVariant)=>currentVariant === 'login' ? "register":"login")
@@ -36,7 +36,7 @@ function Auth() {
           
             const githubcreate = await githubSignup();
             
-            dispatch(trueState())
+            dispatch1(trueState())
             setSuccess("account linked to your github profile")
         } catch (error) {
             const appwriteError = error as AppwriteException;
@@ -56,7 +56,7 @@ function Auth() {
                 'http://localhost:3000/auth'
             );
             
-            dispatch(trueState())
+            dispatch1(trueState())
             setSuccess("account linked to your google profile")
         } catch (error) {
             const appwriteError = error as AppwriteException;
@@ -70,10 +70,10 @@ function Auth() {
             try {
                 if(variant === 'login'){
                     const login = await account.createEmailPasswordSession(email,password);
-                    dispatch(trueState())
+                    dispatch1(trueState())
                     console.log(login)
                     setSuccess("logging in .....")
-                    router.push('/profiles')
+                    router1.push('/profiles')
 
 
                 }

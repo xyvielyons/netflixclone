@@ -8,7 +8,7 @@ import axios from 'axios';
 function IsUserLoggedIn({children}:{children:React.ReactNode}) {
     const GetState = useAppSelector((state)=>state.reducer.userAuthState.userAuthState);
     const router = useRouter()
-    const dispatch = useAppDispatch()
+    const dispatch1 = useAppDispatch()
 
     useEffect(()=>{
            
@@ -34,7 +34,7 @@ function IsUserLoggedIn({children}:{children:React.ReactNode}) {
 
           return GetUserInfo
          } catch (error:any) {
-            dispatch(falseState())
+            dispatch1(falseState())
        
          }
          

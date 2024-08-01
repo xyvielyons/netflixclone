@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation';
 
 function PrivateRoute({children}:{children:React.ReactNode}) {
     const GetState = useAppSelector((state)=>state.reducer.userAuthState.userAuthState);
-    const router = useRouter()
+    const router1 = useRouter()
 
     useEffect(()=>{
         if(!GetState){
-            router.push('/auth')
+            router1.push('/auth')
         }
     },[GetState])
     
